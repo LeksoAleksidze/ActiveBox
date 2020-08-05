@@ -22,6 +22,15 @@ header
 	margin: auto;
 	padding: 0 30px;
 }
+header.sticky
+{
+	z-index: 999999;
+	position: fixed;
+	left: 0;
+	right: 0;
+	background-color: #505369;
+	transition: all .4s ease-in-out;
+}
 header .brand-name
 {
 		line-height: 80px;
@@ -60,6 +69,10 @@ header .menu li a
 	-webkit-transition: all .5s ease;
 
 }
+header.sticky .menu li a:hover
+{
+	color: chocolate!important;
+}
 header .menu li a:hover
 {
 	color: #505369!important;
@@ -68,46 +81,38 @@ header .menu li a.active
 {
 	color: #505369!important;
 }
-header .hum-burger .fa
+header .hum-burger
 {
-	font-size: 20px;
-	color: #fff;
-	background-color: #e84545;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	cursor: pointer;
-	line-height: 50px;
-	text-align: center;
+	width: 35px;
+	height: 30px;
 	position: fixed;
-	right: 25px;
-	top: 16px;
-	display: none;
-	transition:  all .4s ease;
+	right: 20px;
+	top: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	cursor: pointer;
+	z-index: 111111111;
 }
-header .hum-burger .fa:hover
+header .hum-burger .line
 {
-	color: black;
+	transition: all .3s ease-in-out;
+	width: 100%;
+	height: 3px;
+	background-color: chocolate;
 }
-/*header .hum-burger .fa-times
+.change .hum-burger .line-1 
+{
+	transform: rotateZ(-45deg) translate(-8px, 6px) rotateY(180deg);
+}
+.change .hum-burger .line-2 
 {
 	opacity: 0;
 }
-header .hum-burger .fa-bars
+.change .hum-burger .line-3 
 {
-	opacity: 1;
-}*/
-#menubtn
-{
-	display: none;
+	transform: rotateZ(45deg) translate(-8px, -6px) rotateY(-180deg);
 }
-
-#menubtn:checked ~ .hum-burger .fa-times
-{
-	opacity: 1;
-}
-
-
 
 
 /*HOME*/
@@ -744,7 +749,13 @@ footer .footer-content .cont:nth-child(2) ul  .fa
 	  	font-size: 22px;
 	  }
 }
-
+@media screen and ( min-width: 991px)
+{
+		header .hum-burger
+	{
+		display: none!important;
+	}
+}
 @media (max-width: 991px)
 {
 	header
@@ -785,19 +796,12 @@ footer .footer-content .cont:nth-child(2) ul  .fa
        	line-height: 80px;
        }
 
-      #menubtn:checked ~ nav
+      .change  nav
       {
       	left: 0;
       	opacity: 1;
 
       }
-
-
-     header .hum-burger .fa
-     {
-     	display: block;
-        z-index: 11111111111;
-     }
 
      #home .full-screen .home-content .block h1
      {
